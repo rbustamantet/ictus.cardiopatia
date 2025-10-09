@@ -1,2 +1,2 @@
-# ictus.cardiopatia
-Prevención del ictus en cardiopatías embolígenas
+# ictus
+Herramientas en la atención del ictus
