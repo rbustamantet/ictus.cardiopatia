@@ -216,6 +216,36 @@
 
     // === Conjuntos de mapas ===
     const mapSets = {
+infra_supra: {
+    label: 'Territorios infra y supratentoriales',
+    maps: [
+      {id:'is1', name:'Agujero magno', src:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMG0m1mcm72rnrmfTh6rAA8xsQntXzxiMWS3hXsY_M7h6u8yFypJUbXd4kS456I9ySKpktYnc7yXyeuEqlk41nVn_AwDRdFuTv9zqqgrs9QU5MWIRr8cG8Hi5l_E1cvBPjJlJgHUgmR7HdLXZz4zMQZumzzyf5CjJmIbQ1v7MDmoP3Em0QU22y2V0PF4Y/s520/Radioedia01_recorte_real.JPG'},
+      {id:'is2', name:'Bulbo', src:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHItoAHB1X_nCppdHu7WBOr3QhaQ43Lny8whbA_KpUCUTI0gpPz6-MZ2W5jysVMn90J2x_N8tR6yUshNsZ2-oTSYDsZizJ0YFrZIY3Rfz3XNAPzfVY3Sd-UdkXOIq-x41nvQjvK8o9E_m3pjFSa5Z02aja_-yZqFt5f1lXlhJVNpSmiPs06VMlYCq9Id4/s520/Radioedia02_recorte_real.JPG'},
+      {id:'is3', name:'Ángulo pontocerebeloso', src:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6yS-6jsK5KASYKZMkKjqdC-JYGkbm3Oct4WJzhZjzX9vFU_pj2l2e-zz6xk4Iut1XbN0IKsiEhOTdmtSIUJQV-rNqBnN1M1ZFg8s0sFmznVXeAkJ4vaVY0Q-2W8bNbYL4oi2WwcucQEgW8A4Co4P4F7uuHrh-ZLnajATdgD_3EvFJHrTfsOP31Kp31_s/s520/Radioedia03_recorte_real.JPG'},
+      {id:'is4', name:'Protuberancia alta', src:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijltQXlqdAgiBl5DoMGtXnmWgWS4jxE7YlPjYKLOdMbXUXKqVk0Gckk1wliwNzT0SzCLXsKUE2frInsSPvMonxv2wyWbcejimIy4lKYNBotpBaEH-AIgdHZhEbzWGTbtPLbH_fGX23gQf0NYZvVQ_FX5YaEu2Lj9CggaagKBoHDIdC_Rd1cim4jd1LWpQ/s520/Radioedia04_recorte_real.JPG'},
+      {id:'is5', name:'Mesencéfalo', src:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK1WZf2cXvceyzevs5lzrg956N10qY4BNI8o6uniYvS-qFu5LJawSPWiejgJybP6ojFTBH-E3X8iJnCbqXPCvPdW3sql_qNsO8HwJxNhFUMaVkUsDciFKFf3vvlCY8PQcrc_FzycCad3j3aEJ-m6JqR6xBxb4q8xDIV70TOatkY57gB86skkFmv1liRlY/s520/Radioedia05_recorte_real.JPG'},
+      {id:'is6', name:'III ventrículo y tálamo', src:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpFlVlEemvS7BW_s0Mlreu_oK3D9QA4TXWqTX05U7p-_hE7W3TRjgXtNf3iUGVeAQjT10RN0CXSTjNYkOXWun5rL3zd2ol8974V69Gglphyqya3vTbLWVFAHXftUOcgQlRrCxQ1K66kN5Yyn4-Tdl6eslQwU9Mc-R7epkvos-G4_O6AkQB5SPkGs0eDYI/s520/Radioedia06_recorte_real.JPG'},
+      {id:'is7', name:'Ganglios de la base', src:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgx7sz8OTk-36vr3gf6_tMfAPeTOkw-vDnVW4bsJcTAvEzNEXdEDddKF3CBD1pZtD8asNNI_JXzmKB_ic7cB1bUPx6xqYtVrLEuIU6k6mUuu97K0jJWBMekxWxB_kLCvdkStPvH6NFxXP9XFkAQk0M-74oeriA6JUtgOkbdJrKG6FeNyeAiN2nEE4DlDM4/s520/Radioedia07_recorte_real.JPG'},
+      {id:'is8', name:'Cuerpos ventriculares', src:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjSoZrIXCdjWixqzG2uP9GlBWsSxXK6DVlyGJ4awfpLCX5qb0Im0mSz7ho5SReMCs2QBy2bwpfrp1CSYj0Ox055ekR6CD7O1W_hSaIpJUkWPfBNq-VMCg38gYDo92-dDijDXBnUKe-kQE7Sf_U1HH9i5-qrEXEYfwXGhY5VhM1uvH8dnkf3qOaAIr7jGhw/s520/Radioedia08_recorte_real.JPG'},
+      {id:'is9', name:'Centros semiovales', src:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxdVtpPym7PvbTGpfJHELDMBqL427Cf8a9mWGhOJYdfAJ6THnm5XiddTzs_hu2sqwTz5iMvXvmOp7sA_VcI-aZvR9Lj-w4EJNVbpv79ooFycjJSDdQ_UvXJT2xodZYwhuKO2AuhhXSgU_9m_yRYsvYgOqf4rLQ7W3ADQFAWCdLEcUjZdW-HnwFy9QEws4/s520/Radioedia09_recorte_real.JPG'},
+      {id:'is10', name:'Vértex', src:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2_7CuZHaqVZ8qsw5SMH-5ktjcq3CnSPLIhRw1lSfoxlsAx9xksQc-A7OMQt8YA80Jn6JIeHi7IlJFSe-5RH2Nt-Cpt392X-BITX7Qc1J1Of-BB__MU3Ko16i0xEgjbEIOYV9NIFD5Zdj5K6QbBEi1Qr6yPHioLDQor2z6xvt8dBd1VHAtuVgGJbjoz1U/s520/Radioedia010_recorte_real.JPG'}
+    ],
+    legendHTML: `
+      <h3>Territorios infra y supratentoriales</h3>
+      <ul>
+  <li><span class="swatch" style="background:#7e22ce;"></span><strong style="color:#7e22ce;">PICA</strong> – Arteria cerebelosa posteroinferior.</li>
+  <li><span class="swatch" style="background:#0284c7;"></span><strong style="color:#0284c7;">AICA</strong> – Arteria cerebelosa anteroinferior.</li>
+  <li><span class="swatch" style="background:#06b6d4;"></span><strong style="color:#06b6d4;">SCA</strong> – Arteria cerebelosa superior.</li>
+  <li><span class="swatch" style="background:#16a34a;"></span><strong style="color:#16a34a;">BA</strong> – Arteria basilar y sus ramas perforantes.</li>
+  <li><span class="swatch" style="background:#1e40af;"></span><strong style="color:#1e40af;">PCA</strong> – Arteria cerebral posterior.</li>
+  <li><span class="swatch" style="background:#7c3aed;"></span><strong style="color:#7c3aed;">Lenticuloestriadas</strong> – Ramas perforantes.</li>
+  <li><span class="swatch" style="background:#ec4899;"></span><strong style="color:#ec4899;">A. coroidea anterior</strong> – Origen en carótida intracraneal.</li>
+  <li><span class="swatch" style="background:#dc2626;"></span><strong style="color:#dc2626;">MCA</strong> – Arteria cerebral media.</li>
+  <li><span class="swatch" style="background:#ca8a04;"></span><strong style="color:#ca8a04;">ACA</strong> – Arteria cerebral anterior.</li>
+  <li><span class="swatch" style="background:#78350f;"></span><strong style="color:#78350f;">Espinales</strong> – Ramas espinales anterior y posterior.</li>
+</ul>
+    `
+  },
       corticales: {
         label: 'Arterias y ramas corticales',
         maps: [
@@ -473,12 +503,26 @@
     });
 
     // --- Inicio
-    window.addEventListener('DOMContentLoaded', ()=>{
-      populateSetSelect();
-      selectorSet.value = 'corticales';            // por defecto
-      populateMapOptions('corticales');            // llena el selector de mapas y la leyenda
-      actualizarOpacidad(parseFloat(opacidad.value));
-    });
+    // --- Inicio
+window.addEventListener('DOMContentLoaded', ()=>{
+  populateSetSelect();
+  selectorSet.value = 'infra_supra';           // por defecto: Territorios infra y supratentoriales
+  populateMapOptions('infra_supra');           // llena el selector de mapas y la leyenda
+  actualizarOpacidad(parseFloat(opacidad.value));
+});
+
   </script>
+  <footer style="
+    text-align:center;
+    margin-top:2rem;
+    padding:1rem 0;
+    border-top:1px solid #e5e7eb;
+    background:#ffffff;">
+    <a href="https://ictusmalaga.blogspot.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+      <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjVtODA0IhiAdybWI1agwcBIpZHwqL23SOJppZYsCnyBvnH_l43stC9yvFgOyFq060DeenIQtmBzy84RrsExZFRYWPaSKgEr4KsrDt5oRMCoZFYwfBNBYMZfzIgBZrOWCBjBhbtNQ9iuJ_y2pIdshl1Npp5CwCfCKIfptidRKhIhcVxi0n66m8AYXU4o1Q=w800"
+           alt="Unidad de Ictus Málaga"
+           style="max-width:320px;height:auto;opacity:.95;transition:opacity .2s;">
+    </a>
+  </footer>
 </body>
 </html>
