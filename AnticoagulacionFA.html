@@ -268,6 +268,7 @@ header h1 {
         <ul id="doseList" class="rec-list list-min"></ul>
       </div>
 
+
       <!-- Botones de informe -->
       <div class="btnbar">
         <button type="button" class="ghost" id="btnPrint" disabled>Imprimir informe</button>
@@ -280,6 +281,13 @@ header h1 {
         <b>NNT</b>=nº necesario a tratar; <b>RS</b>=riesgo anual de sangrado mayor; <b>RRS</b>=riesgo relativo de sangrado vs VKA; <b>NNH</b>=nº necesario para dañar.
       </p>
     </div>
+<app-disclaimer
+  data-target="#resultCard"
+  data-position="after"
+  data-when="visible"
+  data-version="1.0"
+  data-context="FA no valvular — Anticoagulación">
+</app-disclaimer>
 
     <!-- Toast -->
     <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
@@ -879,16 +887,170 @@ refToggle.addEventListener('click', () => {
 });
 </script>
 <footer style="
-    text-align:center;
-    margin-top:2rem;
-    padding:1rem 0;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+    width:100vw;
+    margin:2rem 0 0 0;
+    padding:1.5rem 0;
     border-top:1px solid #e5e7eb;
-    background:#ffffff;">
-    <a href="https://ictusmalaga.blogspot.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjVtODA0IhiAdybWI1agwcBIpZHwqL23SOJppZYsCnyBvnH_l43stC9yvFgOyFq060DeenIQtmBzy84RrsExZFRYWPaSKgEr4KsrDt5oRMCoZFYwfBNBYMZfzIgBZrOWCBjBhbtNQ9iuJ_y2pIdshl1Npp5CwCfCKIfptidRKhIhcVxi0n66m8AYXU4o1Q=w800"
-           alt="Unidad de Ictus Málaga"
-           style="max-width:320px;height:auto;opacity:.95;transition:opacity .2s;">
-    </a>
-  </footer>
+    background:#ffffff;
+    text-align:center;
+    box-shadow:0 -2px 6px rgba(0,0,0,0.04);
+">
+  <a href="https://ictusmalaga.blogspot.com" target="_blank" rel="noopener noreferrer"
+     style="text-decoration:none;display:inline-block;">
+    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjVtODA0IhiAdybWI1agwcBIpZHwqL23SOJppZYsCnyBvnH_l43stC9yvFgOyFq060DeenIQtmBzy84RrsExZFRYWPaSKgEr4KsrDt5oRMCoZFYwfBNBYMZfzIgBZrOWCBjBhbtNQ9iuJ_y2pIdshl1Npp5CwCfCKIfptidRKhIhcVxi0n66m8AYXU4o1Q=w800"
+         alt="Unidad de Ictus Málaga"
+         style="max-width:380px;height:auto;opacity:.96;transition:opacity .2s;">
+  </a>
+</footer>
+
+<!-- Componente universal de advertencia contextual — fondo rojo tenue + gating por resultado -->
+<script>
+(()=>{
+  class AppDisclaimer extends HTMLElement{
+    static get observedAttributes(){ return ["data-version","data-context","data-target","data-position","data-when","data-require"]; }
+    constructor(){ super(); this._shadow=this.attachShadow({mode:"open"}); this._render(); }
+    connectedCallback(){ this._ensureMounted(); this._setupObservers(); }
+    attributeChangedCallback(){ this._render(); this._ensureMounted(); }
+
+    _render(){
+      const version=this.getAttribute("data-version")||"1.0";
+      const context=this.getAttribute("data-context")||"";
+      const d=new Date(), f=`${String(d.getDate()).padStart(2,"0")}/${String(d.getMonth()+1).padStart(2,"0")}/${d.getFullYear()}`;
+      this._shadow.innerHTML=`
+        <style>
+          :host{display:block}
+          .box{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: var(--ink,#0f172a);
+            background:#fff5f5;               /* fondo muy suave rojo */
+            border:1px solid #fbd5d5;         /* borde suave */
+            border-left:4px solid var(--bad,#b71c1c);
+            border-radius:12px;
+            padding:12px 14px;
+            margin:12px 0 0 0;
+            line-height:1.45;
+          }
+          .box strong{ color: var(--bad,#b71c1c); }
+          .meta{ display:block; margin-top:6px; font-size:12px; color: var(--muted,#64748b); }
+          .hidden{ display:none!important; }
+        </style>
+        <aside class="box hidden" role="note" aria-label="Advertencia de uso">
+          <strong>Advertencia.</strong> Esta herramienta es un <b>apoyo</b> a la decisión clínica;
+          no sustituye el juicio profesional, la valoración individual del paciente ni los
+          <b>protocolos/guías locales actualizados</b>. Verifique siempre indicaciones,
+          contraindicaciones, interacciones, posología y disponibilidad según su centro.
+          Ante discrepancias, <b>prevalecen los protocolos vigentes</b> y el criterio del equipo responsable.
+        </aside>`;
+    }
+
+    _getTarget(){
+      const explicit=this.getAttribute("data-target");
+      if(explicit){ try{const el=document.querySelector(explicit); if(el) return el;}catch(_){ } }
+      const candidates=["#resultCard",".resultado","#resultado",".result","#result",".recomendacion",
+                        ".recommendation",".output","#output",".rope-result",".calc-result",".box-result",".card-result"];
+      for(const sel of candidates){ const el=document.querySelector(sel); if(el) return el; }
+      return null;
+    }
+
+    _ensureMounted(){
+      const tgt=this._getTarget();
+      if(tgt){ this._mountTo(tgt); return; }
+      if(this._waitMO) return;
+      this._waitMO=new MutationObserver(()=>{ const t=this._getTarget(); if(t){ this._mountTo(t); this._waitMO.disconnect(); this._waitMO=null; }});
+      this._waitMO.observe(document.body,{childList:true,subtree:true});
+    }
+
+    _mountTo(tgt){
+      if(this._mountedTo===tgt) return; this._mountedTo=tgt;
+      const pos=(this.getAttribute("data-position")||"after").toLowerCase();
+      if(pos==="before"){ tgt.insertAdjacentElement("beforebegin",this); }
+      else if(pos==="inside-start"){ tgt.insertAdjacentElement("afterbegin",this); }
+      else if(pos==="inside-end"){ tgt.insertAdjacentElement("beforeend",this); }
+      else{ tgt.insertAdjacentElement("afterend",this); } // after por defecto
+    }
+
+    _setupObservers(){
+      const when=(this.getAttribute("data-when")||"visible").toLowerCase();
+      // Observa el target y también señales de "resultado listo"
+      const tgt=this._getTarget(); if(!tgt) return;
+
+      this._mo && this._mo.disconnect();
+      this._mo=new MutationObserver(()=>this._evaluateVisibility());
+      this._mo.observe(tgt,{attributes:true,attributeFilter:["class","style","aria-hidden"],subtree:false});
+
+      // Cambios de contenido relevantes (#recList, #comparative tbody)
+      this._contentMO && this._contentMO.disconnect();
+      this._contentMO=new MutationObserver(()=>this._evaluateVisibility());
+      const recList=document.querySelector("#recList"); if(recList) this._contentMO.observe(recList,{childList:true,subtree:false});
+      const compBody=document.querySelector("#comparative tbody"); if(compBody) this._contentMO.observe(compBody,{childList:true,subtree:false});
+
+      // IntersectionObserver como salvaguarda
+      this._io && this._io.disconnect();
+      this._io=new IntersectionObserver((entries)=>{
+        const visible=entries.some(e=>e.isIntersecting);
+        this._evaluateVisibility(visible);
+      },{root:null,threshold:0.01});
+      this._io.observe(tgt);
+
+      // Re-evaluar periódicamente por si __lastReport cambia
+      this._tick && clearInterval(this._tick);
+      this._tick=setInterval(()=>this._evaluateVisibility(),500);
+
+      this._evaluateVisibility();
+    }
+
+    _hasComputedResult(){
+      // 1) Señal primaria: variable global establecida por tu lógica
+      if (typeof window!=="undefined" && window.__lastReport) return true;
+      // 2) Alternativas: contenido en resultados
+      const hasRec = !!document.querySelector("#recList li");
+      const hasRows = !!document.querySelector("#comparative tbody tr");
+      // 3) Botones de informe habilitados (proxy)
+      const btnP=document.getElementById('btnPrint'), btnC=document.getElementById('btnCopy');
+      const buttonsReady = !!(btnP && btnC && !btnP.disabled && !btnC.disabled);
+      return hasRec || hasRows || buttonsReady;
+    }
+
+    _evaluateVisibility(ioVisible){
+      const tgt=this._getTarget();
+      if(!tgt){ this._setVisible(false); return; }
+
+      const style=getComputedStyle(tgt);
+      const displayOk=style.display!=="none" && style.visibility!=="hidden" && style.opacity!=="0";
+      const classOk=!(tgt.classList && tgt.classList.contains("hidden"));
+      const showOk=(tgt.classList && (tgt.classList.contains("show")||tgt.classList.contains("active")))
+                    || tgt.getAttribute("aria-hidden")==="false";
+
+      const when=(this.getAttribute("data-when")||"visible").toLowerCase();
+      const require=(this.getAttribute("data-require")||"report").toLowerCase(); // "report" | "rows" | "none"
+      const logicalVisible = (when==="always") ? true : (showOk || (displayOk && classOk));
+
+      // Gating por resultado
+      let computedOk=true;
+      if(require==="report"){ computedOk = this._hasComputedResult(); }
+      else if(require==="rows"){ const rec = !!document.querySelector("#recList li"); const rows=!!document.querySelector("#comparative tbody tr"); computedOk = (rec||rows); }
+      // "none" => no exige nada
+
+      const finalVisible = logicalVisible && computedOk && (ioVisible===undefined ? true : ioVisible);
+      this._setVisible(finalVisible);
+    }
+
+    _setVisible(flag){
+      const box=this._shadow.querySelector(".box");
+      if(box) box.classList.toggle("hidden",!flag);
+    }
+  }
+
+  if(!customElements.get("app-disclaimer")){
+    customElements.define("app-disclaimer",AppDisclaimer);
+  }
+})();
+</script>
+
+
+
 </body>
 </html>
