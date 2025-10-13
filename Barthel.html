@@ -58,10 +58,12 @@ html,body{
 
 /* ---------- CONTENIDO ---------- */
 .barthel-container{
-  max-width:880px;
+  width:100%;
+  max-width:680px;
   margin:16px auto 48px;
-  padding:0 16px;
+  padding:0 10px;
 }
+
 .barthel-card{
   background:#fff;
   border:1px solid var(--borde);
@@ -500,7 +502,7 @@ function imprimirResultados(){
   var printHTML = `
     <html>
     <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
       <title>Escala de Barthel - Resultado</title>
       <style>
         body { font-family: Verdana, Geneva, Tahoma, sans-serif; margin: 30px; line-height: 1.6; }
