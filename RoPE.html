@@ -208,9 +208,6 @@ label{font-size:14px;font-weight:700;color:var(--azul);}
         <label>2. Factores de Riesgo Clínicos</label>
         
         <div class="rope-item">
-            <label><input type="checkbox" id="cortex" value="1"> Infarto no lacunar cortical (+1 pto)</label>
-        </div>
-        <div class="rope-item">
             <label><input type="checkbox" id="noDM" value="1"> Ausencia de diabetes (+1 pto)</label>
         </div>
         <div class="rope-item">
@@ -220,7 +217,7 @@ label{font-size:14px;font-weight:700;color:var(--azul);}
             <label><input type="checkbox" id="noPriorStroke" value="1"> Ausencia de ictus o AIT previo (+1 pto)</label>
         </div>
         <div class="rope-item">
-            <label><input type="checkbox" id="cortexImaging" value="1"> Hallazgos de neuroimagen cortical (+1 pto)</label>
+            <label><input type="checkbox" id="cortex" value="1"> Infarto cortical en neuroimagen (+1 pto)</label>
         </div>            
         <div id="err" class="rope-err"></div>
     </form>
@@ -331,12 +328,11 @@ function calcularRoPE() {
     totalScore += parseInt(ageValue);
 
     // 2. Factores de Riesgo (Checkboxes)
-    const checks = [el('cortex'), el('noDM'), el('noHTN'), el('noPriorStroke'), el('cortexImaging')];
-    checks.forEach(checkbox => {
-        if (checkbox.checked) {
-            totalScore += parseInt(checkbox.value);
-        }
-    });
+const checks = Array.from(document.querySelectorAll('#ropeForm input[type="checkbox"]'));
+checks.forEach(checkbox => {
+  if (checkbox.checked) totalScore += parseInt(checkbox.value, 10);
+});
+
 
     // 3. Mostrar Resultado
     const finalScore = Math.min(10, totalScore);
@@ -395,7 +391,7 @@ function copiarResumen() {
     
     let summary = "Escala RoPE (Risk of Paradoxical Embolism)\n";
     summary += "========================================\n";
-    summary += "Puntuación RoPE: " + finalScore + "/10\n";
+    summary += "Puntuación RoPE: " + finalScore + "/9\n";
     summary += "Probabilidad de Ictus por FOP: " + finalProb + " (" + finalDesc + ")\n";
     summary += "Explicación Clínica: " + finalExp.replace(/<[^>]*>?/gm, "") + "\n\n";
     summary += "Factores marcados:\n";
@@ -403,12 +399,13 @@ function copiarResumen() {
     const ageText = el('age').options[el('age').selectedIndex].text;
     summary += "- Edad: " + ageText + "\n";
 
-    const checks = [el('cortex'), el('noDM'), el('noHTN'), el('noPriorStroke'), el('cortexImaging')];
-    checks.forEach(checkbox => {
-        if (checkbox.checked) {
-            summary += "- " + checkbox.parentNode.textContent.trim() + "\n";
-        }
-    });
+    const checks = Array.from(document.querySelectorAll('#ropeForm input[type="checkbox"]'));
+checks.forEach(checkbox => {
+  if (checkbox.checked) {
+    summary += "- " + checkbox.parentNode.textContent.trim() + "\n";
+  }
+});
+
     
     const btn = el('btnCopy');
     
