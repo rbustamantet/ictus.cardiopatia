@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="https://rbustamantet.github.io/ictus.cardiopatia/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="https://rbustamantet.github.io/ictus.cardiopatia/favicon.svg" />
+<link rel="shortcut icon" href="https://rbustamantet.github.io/ictus.cardiopatia/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://rbustamantet.github.io/ictus.cardiopatia/apple-touch-icon.png" />
+<link rel="manifest" href="https://rbustamantet.github.io/ictus.cardiopatia/site.webmanifest" />
   <title>Anticoagulación oral en Fibrilación Auricular</title>
   <style>
     :root{--c1:#e9f4ff;--c2:#d2ebff;--c3:#a7d4ff;--accent:#1976d2;--ok:#1b5e20;--bad:#b71c1c;}
@@ -863,6 +868,16 @@ header h1 {
   </li>
 </ol>    </div>
   </div>
+
+<script>
+const refToggle = document.getElementById('refToggle');
+const refContent = document.getElementById('refContent');
+const refArrow = document.getElementById('refArrow');
+refToggle.addEventListener('click', () => {
+  const isOpen = refContent.classList.toggle('show');
+  refArrow.textContent = isOpen ? '▲' : '▼';
+});
+</script>
 <footer style="
     text-align:center;
     margin-top:2rem;
@@ -875,14 +890,5 @@ header h1 {
            style="max-width:320px;height:auto;opacity:.95;transition:opacity .2s;">
     </a>
   </footer>
-<script>
-const refToggle = document.getElementById('refToggle');
-const refContent = document.getElementById('refContent');
-const refArrow = document.getElementById('refArrow');
-refToggle.addEventListener('click', () => {
-  const isOpen = refContent.classList.toggle('show');
-  refArrow.textContent = isOpen ? '▲' : '▼';
-});
-</script>
 </body>
 </html>
