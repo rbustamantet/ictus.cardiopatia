@@ -17,7 +17,7 @@
 }
 
 /* ---------- BASE ---------- */
-html,body{
+html{
   margin:0; padding:0;
   background:var(--bg);
   color:var(--ink);
@@ -25,7 +25,12 @@ html,body{
   line-height:1.5;
   -webkit-text-size-adjust:100%;
   text-size-adjust:100%;
-  overflow-x:hidden;
+}
+
+body{
+  margin:0;
+  overflow-x:hidden; /* solo horizontal, evita interferencia con sticky */
+  overflow-y:auto;
 }
 
 /* ---------- CABECERA ---------- */
