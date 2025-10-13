@@ -1,56 +1,187 @@
 <style>
-/* Estilos para la Escala de Barthel */
+/* =====================================================
+   ESCALA DE BARTHEL — versión responsive para GitHub Pages
+===================================================== */
 :root{
   --bg:#f8fafc; --ink:#0f172a;
   --azul:#0b2c5f; --gris:#6b7280; --borde:#e5e7eb;
   --ok:#0a7f3f; --error:#b91c1c;
   --accent:#2563eb; --accent-light:#dbeafe;
 }
-.barthel-body{font-family: Verdana, Geneva, Tahoma, sans-serif; background:var(--bg); color:var(--ink); margin:0}
-/* Cabecera pegajosa (ajustada para funcionar mejor dentro de un post) */
-.barthel-appbar{position:sticky; top:0; z-index:1000; background:rgba(255,255,255,0.9); border-bottom:1px solid var(--accent-light);
-          backdrop-filter:saturate(140%) blur(8px); -webkit-backdrop-filter:saturate(140%) blur(8px);
-          transition:box-shadow .15s, border-color .15s, background .15s}
-.barthel-appbar.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.08); border-color:#e2e8f0}
-.barthel-appbar-inner{max-width:980px; margin:0 auto; display:flex; align-items:center; gap:12px; padding:10px 16px}
-.barthel-appbar h1{margin:0; font-size:22px; line-height:1.2; color:var(--accent); font-weight:800}
+
+/* ---------- BASE ---------- */
+html,body{
+  margin:0; padding:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  line-height:1.5;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+  overflow-x:hidden;
+}
+
+/* ---------- CABECERA ---------- */
+.barthel-appbar{
+  position:sticky; top:0; z-index:1000;
+  background:rgba(255,255,255,0.95);
+  border-bottom:1px solid var(--accent-light);
+  backdrop-filter:saturate(140%) blur(8px);
+  -webkit-backdrop-filter:saturate(140%) blur(8px);
+  transition:box-shadow .15s, border-color .15s;
+}
+.barthel-appbar.scrolled{
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+  border-color:#e2e8f0;
+}
+.barthel-appbar-inner{
+  max-width:880px; margin:0 auto;
+  display:flex; align-items:center; gap:12px;
+  padding:10px 16px;
+}
+.barthel-appbar h1{
+  margin:0; font-size:22px; line-height:1.2;
+  color:var(--accent); font-weight:800;
+}
 .barthel-spacer{flex:1}
-.barthel-pill{display:inline-block; max-width:60vw; padding:6px 10px; border-radius:999px; background:var(--accent-light);
-        color:#1e3a8a; border:1px solid #bfdbfe; font-size:12px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-@media (min-width:640px){ .barthel-pill{ max-width:420px } }
+.barthel-pill{
+  display:inline-block;
+  max-width:65vw;
+  padding:6px 10px;
+  border-radius:999px;
+  background:var(--accent-light);
+  color:#1e3a8a;
+  border:1px solid #bfdbfe;
+  font-size:13px; font-weight:700;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
 
-.barthel-container{max-width:880px; margin:16px auto 48px; padding:0 16px}
-.barthel-card{background:#fff; border:1px solid var(--borde); border-radius:16px; padding:18px; box-shadow:0 2px 10px rgba(15,23,42,.06)}
-.barthel-grid{display:grid; grid-template-columns:1fr; gap:16px}
-@media (min-width:720px){ .barthel-grid{ grid-template-columns:1.1fr .9fr } }
-.barthel-label{font-size:14px; font-weight:700; display:block; margin-bottom:6px; color:var(--azul)}
-.barthel-select{width:100%; border:1px solid var(--borde); border-radius:10px; padding:12px; font-size:15px; background:#fff; outline:none}
-.barthel-select:focus{border-color:var(--azul); box-shadow:0 0 0 3px rgba(11,44,95,.12)}
-.barthel-item{margin-bottom:14px}
-.barthel-result{display:none}
-.barthel-result.show{display:block}
-.barthel-kpi{display:grid; grid-template-columns:1fr; gap:12px; margin-top:4px}
-@media (min-width:560px){ .barthel-kpi{ grid-template-columns:1fr 1fr } }
-.barthel-kpi .box{border:1px dashed var(--borde); border-radius:12px; padding:12px; text-align:center}
-.barthel-kpi .ttl{font-size:12px; color:var(--gris)}
-.barthel-kpi .val{font-size:20px; font-weight:700; color:var(--azul)}
-.barthel-classBox{margin-top:12px; border-radius:12px; padding:12px 14px; background:#f0fdf4; color:var(--ok); border:1px solid #bbf7d0; font-weight:700}
-.barthel-error{display:none; border-radius:12px; padding:12px 14px; margin-top:10px; background:#fef2f2; color:var(--error); border:1px solid #fecaca}
-footer.barthel-smallprint{margin-top:20px; font-size:11px; color:var(--gris)}
+/* ---------- CONTENIDO ---------- */
+.barthel-container{
+  max-width:880px;
+  margin:16px auto 48px;
+  padding:0 16px;
+}
+.barthel-card{
+  background:#fff;
+  border:1px solid var(--borde);
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 2px 10px rgba(15,23,42,.06);
+}
+.barthel-grid{
+  display:grid; grid-template-columns:1fr;
+  gap:16px;
+}
+@media (min-width:720px){
+  .barthel-grid{grid-template-columns:1.1fr .9fr;}
+}
 
-.barthel-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+/* ---------- ELEMENTOS ---------- */
+.barthel-label{
+  font-size:15px; font-weight:700;
+  display:block; margin-bottom:6px;
+  color:var(--azul);
+}
+.barthel-select{
+  width:100%;
+  border:1px solid var(--borde);
+  border-radius:10px;
+  padding:12px;
+  font-size:15px;
+  background:#fff;
+  outline:none;
+}
+.barthel-select:focus{
+  border-color:var(--azul);
+  box-shadow:0 0 0 3px rgba(11,44,95,.12);
+}
+.barthel-item{margin-bottom:14px;}
+.barthel-result{display:none;}
+.barthel-result.show{display:block;}
+
+.barthel-kpi{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px; margin-top:4px;
+}
+@media (min-width:560px){
+  .barthel-kpi{grid-template-columns:1fr 1fr;}
+}
+.barthel-kpi .box{
+  border:1px dashed var(--borde);
+  border-radius:12px;
+  padding:12px; text-align:center;
+}
+.barthel-kpi .ttl{font-size:13px; color:var(--gris);}
+.barthel-kpi .val{font-size:22px; font-weight:700; color:var(--azul);}
+.barthel-classBox{
+  margin-top:12px;
+  border-radius:12px;
+  padding:12px 14px;
+  background:#f0fdf4;
+  color:var(--ok);
+  border:1px solid #bbf7d0;
+  font-weight:700;
+}
+.barthel-error{
+  display:none;
+  border-radius:12px;
+  padding:12px 14px;
+  margin-top:10px;
+  background:#fef2f2;
+  color:var(--error);
+  border:1px solid #fecaca;
+}
+
+/* ---------- BOTONES ---------- */
+.barthel-actions{
+  display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;
+}
 .barthel-btn{
-  appearance:none; border:1px solid var(--accent); background:var(--accent-light); color:#1e3a8a;
-  font-weight:700; font-size:14px; padding:10px 14px; border-radius:10px; cursor:pointer;
+  appearance:none;
+  border:1px solid var(--accent);
+  background:var(--accent-light);
+  color:#1e3a8a;
+  font-weight:700; font-size:14px;
+  padding:10px 14px; border-radius:10px;
+  cursor:pointer;
   transition:transform .05s ease, box-shadow .15s ease, background .15s ease;
 }
-.barthel-btn:hover{box-shadow:0 6px 16px rgba(37,99,235,.18)}
-.barthel-btn:active{transform:translateY(1px)}
-.barthel-btn.secondary{border-color:#94a3b8; background:#f1f5f9; color:#0f172a}
-.barthel-hint{font-size:12px; color:var(--gris); margin-top:4px}
-#resumenText{white-space:pre-wrap; font-size:13px; color:#0f172a; margin-top:8px; border:1px dashed var(--borde); border-radius:10px; padding:10px; background:#f8fafc}
-body {
-  overflow-x: hidden;
+.barthel-btn:hover{box-shadow:0 6px 16px rgba(37,99,235,.18);}
+.barthel-btn:active{transform:translateY(1px);}
+.barthel-btn.secondary{
+  border-color:#94a3b8; background:#f1f5f9; color:#0f172a;
+}
+.barthel-hint{font-size:12px; color:var(--gris); margin-top:4px;}
+
+/* ---------- RESUMEN ---------- */
+#resumenText{
+  white-space:pre-wrap;
+  font-size:13px;
+  color:#0f172a;
+  margin-top:8px;
+  border:1px dashed var(--borde);
+  border-radius:10px;
+  padding:10px;
+  background:#f8fafc;
+}
+
+/* ---------- PIE ---------- */
+footer.barthel-smallprint{
+  margin-top:20px; font-size:11px; color:var(--gris);
+}
+
+/* ---------- RESPONSIVE ESPECÍFICO ---------- */
+@media (max-width:600px){
+  .barthel-appbar-inner{padding:8px 12px;}
+  .barthel-appbar h1{font-size:18px;}
+  .barthel-select{font-size:14px; padding:10px;}
+  .barthel-label{font-size:14px;}
+  .barthel-card{padding:14px;}
+  .barthel-btn{font-size:13px; padding:9px 12px;}
+  .barthel-kpi .val{font-size:18px;}
+  .barthel-container{padding:0 10px;}
 }
 </style>
 
@@ -369,6 +500,7 @@ function imprimirResultados(){
   var printHTML = `
     <html>
     <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Escala de Barthel - Resultado</title>
       <style>
         body { font-family: Verdana, Geneva, Tahoma, sans-serif; margin: 30px; line-height: 1.6; }
