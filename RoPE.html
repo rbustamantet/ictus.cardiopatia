@@ -8,7 +8,7 @@
 <link rel="shortcut icon" href="https://rbustamantet.github.io/ictus.cardiopatia/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="https://rbustamantet.github.io/ictus.cardiopatia/apple-touch-icon.png" />
 <link rel="manifest" href="https://rbustamantet.github.io/ictus.cardiopatia/site.webmanifest" />
-<title>Escala de Barthel</title>
+<title>Escala RoPE</title>
 <style>
 /* =================================================
   ESTILOS ESCALA RoPE (Azules y Ancho Completo)
@@ -216,6 +216,9 @@ label{font-size:14px;font-weight:700;color:var(--azul);}
         <div class="rope-item">
             <label><input type="checkbox" id="noPriorStroke" value="1"> Ausencia de ictus o AIT previo (+1 pto)</label>
         </div>
+<div class="rope-item">
+  <label><input type="checkbox" id="noSmoke" value="1"> Ausencia de tabaquismo activo (+1 pto)</label>
+</div>
         <div class="rope-item">
             <label><input type="checkbox" id="cortex" value="1"> Infarto cortical en neuroimagen (+1 pto)</label>
         </div>            
@@ -391,7 +394,7 @@ function copiarResumen() {
     
     let summary = "Escala RoPE (Risk of Paradoxical Embolism)\n";
     summary += "========================================\n";
-    summary += "Puntuación RoPE: " + finalScore + "/9\n";
+    summary += "Puntuación RoPE: " + finalScore + "/10\n";
     summary += "Probabilidad de Ictus por FOP: " + finalProb + " (" + finalDesc + ")\n";
     summary += "Explicación Clínica: " + finalExp.replace(/<[^>]*>?/gm, "") + "\n\n";
     summary += "Factores marcados:\n";
