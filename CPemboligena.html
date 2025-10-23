@@ -173,7 +173,7 @@ footer img { max-width: 80%; height: auto; }
     y complete los <b>datos clínicos</b> (edad, sexo, peso, creatinina, comorbilidades).  
     Pulse <span class="tag">Calcular</span> para obtener la recomendación de <b>tratamiento antitrombótico</b>
     según riesgo embólico y hemorrágico.  
-    Los índices <i>CHA<sup>2</sup>DS<sup>2</sup>-VASc</i> y <i>HAS-BLED</i> se calculan automáticamente cuando son aplicables.
+    Los índices <i>CHA<sub>2</sub>DS<sub>2</sub>-VASc</i> y <i>HAS-BLED</i> se calculan automáticamente cuando son aplicables.
   </div>
 </div>
 
@@ -183,8 +183,8 @@ footer img { max-width: 80%; height: auto; }
     <div class="card" id="patologia-section">
       <h2 style="margin:0 0 8px;">Patología Cardíaca Embolígena</h2>
       <label for="patologia">Seleccione la entidad:</label>
-      <select id="patologia" aria-label="Patología cardíaca"; onchange="mostrarFactoresPatologia()">
-          <option value="">Seleccione una patología...</option>
+      <select id="patologia" aria-label="Patología cardíaca" onchange="mostrarFactoresPatologia()">
+          <option value="" disabled selected>Seleccione una patología...</option>
           <option value="fa">Fibrilación Auricular (FA No Valvular)</option> 
           <option value="fop">Foramen Oval Permeable (FOP) con ictus</option>
           <option value="hipertrofica">Miocardiopatía hipertrófica</option>
@@ -213,7 +213,7 @@ footer img { max-width: 80%; height: auto; }
           <input id="age" inputmode="numeric" max="110" min="18" placeholder="p. ej., 74" type="number" />
         </div>
         <div>
-          <label for="sex">Sexo</select>
+          <label for="sex">Sexo</label>
           <select id="sex">
             <option value="">Selecciona…</option>
             <option value="M">Varón</option>
@@ -246,7 +246,7 @@ footer img { max-width: 80%; height: auto; }
       <div class="sep"></div>
       <div class="grid g-2">
         <div>
-          <label>Factores CHA<sup>2</sup>DS<sup>2</sup>-VASc</label>
+          <label>Factores CHA<sub>2</sub>DS<sub>2</sub>-VASc</label>
           <label class="row" for="cSc"><input id="cSc" type="checkbox" /> Sexo femenino</label>
           <label class="row" for="cAge65"><input id="cAge65" type="checkbox" /> Edad 65–74 años</label>
           <label class="row" for="cAge75"><input id="cAge75" type="checkbox" /> Edad ≥ 75 años (2 pt)</label>
@@ -301,10 +301,10 @@ footer img { max-width: 80%; height: auto; }
       <h2 style="margin:0 0 8px;">Resultados</h2>
       <div class="grid g-2">
         <div>
-          <div><b>CHA<sup>2</sup>DS<sup>2</sup>-VA</b>: <span class="pill ok" id="scoreVA">–</span>
+          <div><b>CHA<sub>2</sub>DS<sub>2</sub>-VA</b>: <span class="pill ok" id="scoreVA">–</span>
             &nbsp;<span class="muted">(sin sexo)</span></div>
           <div><b>HAS-BLED</b>: <span class="pill ok" id="scoreHASBLED">–</span></div>
-          <div class="muted">CHA<sup>2</sup>DS<sup>2</sup>-VASc clásico: <span id="scoreVASc">–</span></div>
+          <div class="muted">CHA<sub>2</sub>DS<sub>2</sub>-VASc clásico: <span id="scoreVASc">–</span></div>
         </div>
         <div>
           <div><b>Riesgo anual de ictus (sin tto): <span class="pill okr"><span id="annualStroke">–</span>%</span></b></div>
@@ -366,33 +366,33 @@ footer img { max-width: 80%; height: auto; }
         <details>
             <summary>Bibliografía y Referencias Clínicas</summary>
             <ol>
-                <li>**CHA₂DS₂-VASc (Riesgo de Ictus):** Friberg L, Rosenqvist M, Lip GYH. Evaluation of risk stratification schemes for ischaemic stroke and bleeding in 182,678 patients with atrial fibrillation. <i>Eur Heart J.</i> 2012;33(12):1500–1510. <a href="https://doi.org/10.1093/eurheartj/ehr488" rel="noopener" target="_blank">doi:10.1093/eurheartj/ehr488</a></li>
+                <li><b>CHA₂DS₂-VASc (Riesgo de Ictus):</b> Friberg L, Rosenqvist M, Lip GYH. Evaluation of risk stratification schemes for ischaemic stroke and bleeding in 182,678 patients with atrial fibrillation. <i>Eur Heart J.</i> 2012;33(12):1500–1510. <a href="https://doi.org/10.1093/eurheartj/ehr488" rel="noopener" target="_blank">doi:10.1093/eurheartj/ehr488</a></li>
                 <li>Olesen JB, et al. Validation of risk stratification schemes for predicting stroke and thromboembolism in atrial fibrillation. <i>BMJ.</i> 2011;342:d124.</li>
-                <li>**HAS-BLED (Riesgo de Sangrado):** Pisters R, Lane DA, Nieuwlaat R, de Vos CB, Crijns HJGM, Lip GYH. A novel user-friendly score (HAS-BLED) to assess one-year risk of major bleeding in atrial fibrillation. <i>Chest.</i> 2010;138(5):1093–1100. <a href="https://doi.org/10.1378/chest.10-0134" rel="noopener" target="_blank">doi:10.1378/chest.10-0134</a></li>
+                <li><b>HAS-BLED (Riesgo de Sangrado):</b> Pisters R, Lane DA, Nieuwlaat R, de Vos CB, Crijns HJGM, Lip GYH. A novel user-friendly score (HAS-BLED) to assess one-year risk of major bleeding in atrial fibrillation. <i>Chest.</i> 2010;138(5):1093–1100. <a href="https://doi.org/10.1378/chest.10-0134" rel="noopener" target="_blank">doi:10.1378/chest.10-0134</a></li>
                 <li>Lip GYH, Frison L, Halperin JL, Lane DA. Comparative validation of the HAS-BLED score in anticoagulated patients with AF. <i>J Am Coll Cardiol.</i> 2011;57(2):173–180. <a href="https://doi.org/10.1016/j.jacc.2010.09.024" rel="noopener" target="_blank">doi:10.1016/j.jacc.2010.09.024</a></li>
-                <li>**Cockcroft–Gault (ClCr):** Cockcroft DW, Gault MH. Prediction of creatinine clearance from serum creatinine. <i>Nephron.</i> 1976;16(1):31–41. <a href="https://pubmed.ncbi.nlm.nih.gov/1244564/" rel="noopener" target="_blank">PMID:1244564</a></li>
+                <li><b>Cockcroft–Gault (ClCr):</b> Cockcroft DW, Gault MH. Prediction of creatinine clearance from serum creatinine. <i>Nephron.</i> 1976;16(1):31–41. <a href="https://pubmed.ncbi.nlm.nih.gov/1244564/" rel="noopener" target="_blank">PMID:1244564</a></li>
 
-                <li>**FA (Guías):** Van Gelder IC, et al. 2024 ESC Guidelines for the management of atrial fibrillation (developed with EACTS). <i>Eur Heart J.</i> 2024;45(36):3314–?.</li>
+                <li><b>FA (Guías):</b> Van Gelder IC, et al. 2024 ESC Guidelines for the management of atrial fibrillation (developed with EACTS). <i>Eur Heart J.</i> 2024;45(36):3314–?.</li>
                 <li>Joglar JA, et al. 2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation. <i>Circulation.</i> 2023;148:eXXX–eXXX. <a href="https://doi.org/10.1161/CIR.0000000000001193" rel="noopener" target="_blank">doi:10.1161/CIR.0000000000001193</a></li>
-                <li>**Valvulopatías y Prótesis:** Baumgartner H, et al. 2021 ESC/EACTS Guidelines for the management of valvular heart disease. <i>Eur Heart J.</i> 2021;42(37):3597–3632.</li>
-                <li>**Miocardiopatías y Trombos:** McDonagh TA, et al. 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure. <i>Eur Heart J.</i> 2021;42(36):3599–3726.</li>
-                <li>**Miocardiopatía Hipertrófica:** Elliott PM, et al. 2014 ESC Guidelines on diagnosis and management of hypertrophic cardiomyopathy. <i>Eur Heart J.</i> 2014;35(39):2733–2779.</li>
-                <li>**FOP e Ictus:** Windecker S, et al. 2024 ESC Guidelines for the management of patients with non-coronary artery disease-related stroke. <i>Eur Heart J.</i> 2024;45(39):4178–4278.</li>
-                <li>**Endocarditis Infecciosa:** Habibi G, et al. 2015 ESC Guidelines for the management of infective endocarditis. <i>Eur Heart J.</i> 2015;36(44):3075-3128.</li>
+                <li><b>Valvulopatías y Prótesis:</b> Baumgartner H, et al. 2021 ESC/EACTS Guidelines for the management of valvular heart disease. <i>Eur Heart J.</i> 2021;42(37):3597–3632.</li>
+                <li><b>Miocardiopatías y Trombos:</b> McDonagh TA, et al. 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure. <i>Eur Heart J.</i> 2021;42(36):3599–3726.</li>
+                <li><b>Miocardiopatía Hipertrófica:</b> Elliott PM, et al. 2014 ESC Guidelines on diagnosis and management of hypertrophic cardiomyopathy. <i>Eur Heart J.</i> 2014;35(39):2733–2779.</li>
+                <li><b>FOP e Ictus:</b> Windecker S, et al. 2024 ESC Guidelines for the management of patients with non-coronary artery disease-related stroke. <i>Eur Heart J.</i> 2024;45(39):4178–4278.</li>
+                <li><b>Endocarditis Infecciosa:</b> Habibi G, et al. 2015 ESC Guidelines for the management of infective endocarditis. <i>Eur Heart J.</i> 2015;36(44):3075-3128.</li>
 
-                <li>**Apixabán (ARISTOTLE):** Granger CB, et al. Apixaban versus warfarin in patients with AF. <i>N Engl J Med.</i> 2011;365:981–992.</li>
-                <li>**Dabigatrán (RE-LY):** Connolly SJ, et al. Dabigatran versus warfarin in AF. <i>N Engl J Med.</i> 2009;361:1139–1151.</li>
-                <li>**Rivaroxabán (ROCKET-AF):** Patel MR, et al. Rivaroxaban versus warfarin in AF. <i>N Engl J Med.</i> 2011;365:883–891.</li>
-                <li>**Edoxabán (ENGAGE AF–TIMI 48):** Giugliano RP, et al. Edoxaban versus warfarin in AF. <i>N Engl J Med.</i> 2013;369:2093–2104.</li>
+                <li><b>Apixabán (ARISTOTLE):</b> Granger CB, et al. Apixaban versus warfarin in patients with AF. <i>N Engl J Med.</i> 2011;365:981–992.</li>
+                <li><b>Dabigatrán (RE-LY):</b> Connolly SJ, et al. Dabigatran versus warfarin in AF. <i>N Engl J Med.</i> 2009;361:1139–1151.</li>
+                <li><b>Rivaroxabán (ROCKET-AF):</b> Patel MR, et al. Rivaroxaban versus warfarin in AF. <i>N Engl J Med.</i> 2011;365:883–891.</li>
+                <li><b>Edoxabán (ENGAGE AF–TIMI 48):</b> Giugliano RP, et al. Edoxaban versus warfarin in AF. <i>N Engl J Med.</i> 2013;369:2093–2104.</li>
                 <li>Hart RG, Pearce LA, Aguilar MI. Meta-analysis: antithrombotic therapy to prevent stroke in AF. <i>Ann Intern Med.</i> 2007;146:857–867. <a href="https://pubmed.ncbi.nlm.nih.gov/17577005/" rel="noopener" target="_blank">PMID:17577005</a></li>
                 <li>Aguilar MI, Hart R, Pearce LA. Antithrombotic therapy for AF (Cochrane Review). <i>Cochrane Database Syst Rev.</i> 2005;CD001927. <a href="https://doi.org/10.1002/14651858.CD001927.pub2" rel="noopener" target="_blank">doi:10.1002/14651858.CD001927.pub2</a></li>
                 <li>Ruff CT, et al. Comparison of the efficacy and safety of new oral anticoagulants with warfarin in AF: meta-analysis of RCTs. <i>Lancet.</i> 2014;383(9921):955–962. <a href="https://doi.org/10.1016/S0140-6736(13)62343-0" rel="noopener" target="_blank">doi:10.1016/S0140-6736(13)62343-0</a></li>
 
-                <li>**Guía Práctica ACOD (General/Dosis):** Steffel J, et al. The 2021 European Heart Rhythm Association Practical Guide on the use of NOACs in patients with atrial fibrillation. <i>Europace.</i> 2021;23(10):1612–1676. <a href="https://doi.org/10.1093/europace/euab065" rel="noopener" target="_blank">doi:10.1093/europace/euab065</a></li>
-                <li>**ACOD y Obesidad Mórbida:** Martin K, et al. Use of DOACs in patients with obesity: Updated communication from the ISTH SSC (resumen de 2021). <i>J Thromb Haemost.</i> 2021;19:1874–1882.</li>
-                <li>**Hemorragia GI y ACOD:** Radadiya D, et al. Major gastrointestinal bleeding risk with DOACs: Does type and dose matter? Network meta-analysis. <i>Eur J Gastroenterol Hepatol.</i> 2021;33(1S Suppl 1):e50–e58. <a href="https://doi.org/10.1097/MEG.0000000000002035" rel="noopener" target="_blank">doi:10.1097/MEG.0000000000002035</a></li>
-                <li>**Triturado/SNG - Apixabán:** Song Y, et al. Relative Bioavailability of Apixaban Solution or Crushed Tablet Administered by Mouth or via NGT. <i>Clin Ther.</i> 2015;37(8):1703–1712. <a href="https://doi.org/10.1016/j.clinthera.2015.05.497" rel="noopener" target="_blank">doi:10.1016/j.clinthera.2015.05.497</a></li>
-                <li>**Triturado/SNG - Edoxabán:** Duchin K, et al. PK of edoxaban 60-mg tablet crushed y administrado por SNG o en puré de manzana. <i>Clin Pharmacokinet.</i> 2018;57:221–228. <a href="https://pubmed.ncbi.nlm.nih.gov/28512699/" rel="noopener" target="_blank">PMID:28512699</a></li>
+                <li><b>Guía Práctica ACOD (General/Dosis):</b> Steffel J, et al. The 2021 European Heart Rhythm Association Practical Guide on the use of NOACs in patients with atrial fibrillation. <i>Europace.</i> 2021;23(10):1612–1676. <a href="https://doi.org/10.1093/europace/euab065" rel="noopener" target="_blank">doi:10.1093/europace/euab065</a></li>
+                <li><b>ACOD y Obesidad Mórbida:</b> Martin K, et al. Use of DOACs in patients with obesity: Updated communication from the ISTH SSC (resumen de 2021). <i>J Thromb Haemost.</i> 2021;19:1874–1882.</li>
+                <li><b>Hemorragia GI y ACOD:</b> Radadiya D, et al. Major gastrointestinal bleeding risk with DOACs: Does type and dose matter? Network meta-analysis. <i>Eur J Gastroenterol Hepatol.</i> 2021;33(1S Suppl 1):e50–e58. <a href="https://doi.org/10.1097/MEG.0000000000002035" rel="noopener" target="_blank">doi:10.1097/MEG.0000000000002035</a></li>
+                <li><b>Triturado/SNG - Apixabán:</b> Song Y, et al. Relative Bioavailability of Apixaban Solution or Crushed Tablet Administered by Mouth or via NGT. <i>Clin Ther.</i> 2015;37(8):1703–1712. <a href="https://doi.org/10.1016/j.clinthera.2015.05.497" rel="noopener" target="_blank">doi:10.1016/j.clinthera.2015.05.497</a></li>
+                <li><b>Triturado/SNG - Edoxabán:</b> Duchin K, et al. PK of edoxaban 60-mg tablet crushed y administrado por SNG o en puré de manzana. <i>Clin Pharmacokinet.</i> 2018;57:221–228. <a href="https://pubmed.ncbi.nlm.nih.gov/28512699/" rel="noopener" target="_blank">PMID:28512699</a></li>
             </ol>
         </details>
     </div>
@@ -1135,8 +1135,8 @@ footer img { max-width: 80%; height: auto; }
       </div>
       <div>
         <table>
-          <tr><td><b>CHA<sup>2</sup>DS<sup>2</sup>-VA</b></td><td class="chip">${r.scores.va}</td></tr>
-          <tr><td><b>CHA<sup>2</sup>DS<sup>2</sup>-VASc</b></td><td class="chip">${r.scores.vasc}</td></tr>
+          <tr><td><b>CHA<sub>2</sub>DS<sub>2</sub>-VA</b></td><td class="chip">${r.scores.va}</td></tr>
+          <tr><td><b>CHA<sub>2</sub>DS<sub>2</sub>-VASc</b></td><td class="chip">${r.scores.vasc}</td></tr>
           <tr><td><b>HAS-BLED</b></td><td class="chip">${r.scores.hasbled}</td></tr>
           <tr><td><b>Riesgo ictus sin tto (FA)</b></td><td>${r.risks.strokeBase} %/año</td></tr>
           <tr><td><b>Riesgo sangrado base</b></td><td>${r.risks.bleedBase} %/año</td></tr>
@@ -1282,16 +1282,23 @@ footer img { max-width: 80%; height: auto; }
     });
     </script>
 <footer style="
-    text-align:center;
-    margin-top:2rem;
-    padding:1rem 0;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+    width:100vw;
+    margin:2rem 0 0 0;
+    padding:1.5rem 0;
     border-top:1px solid #e5e7eb;
-    background:#ffffff;">
-    <a href="https://ictusmalaga.blogspot.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-      <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjVtODA0IhiAdybWI1agwcBIpZHwqL23SOJppZYsCnyBvnH_l43stC9yvFgOyFq060DeenIQtmBzy84RrsExZFRYWPaSKgEr4KsrDt5oRMCoZFYwfBNBYMZfzIgBZrOWCBjBhbtNQ9iuJ_y2pIdshl1Npp5CwCfCKIfptidRKhIhcVxi0n66m8AYXU4o1Q=w800"
-           alt="Unidad de Ictus Málaga"
-           style="max-width:320px;height:auto;opacity:.95;transition:opacity .2s;">
-    </a>
-  </footer>
+    background:#ffffff;
+    text-align:center;
+    box-shadow:0 -2px 6px rgba(0,0,0,0.04);
+">
+  <a href="https://ictusmalaga.blogspot.com" target="_blank" rel="noopener noreferrer"
+     style="text-decoration:none;display:inline-block;">
+    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjVtODA0IhiAdybWI1agwcBIpZHwqL23SOJppZYsCnyBvnH_l43stC9yvFgOyFq060DeenIQtmBzy84RrsExZFRYWPaSKgEr4KsrDt5oRMCoZFYwfBNBYMZfzIgBZrOWCBjBhbtNQ9iuJ_y2pIdshl1Npp5CwCfCKIfptidRKhIhcVxi0n66m8AYXU4o1Q=w800"
+         alt="Unidad de Ictus Málaga"
+         style="max-width:380px;height:auto;opacity:.96;transition:opacity .2s;">
+  </a>
+</footer>
 </body>
 </html>
