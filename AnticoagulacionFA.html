@@ -117,7 +117,7 @@ header h1 {
     <div class="card">
       <p class="note"><b>Cómo usar:</b> introduce los datos del paciente, marca los factores de riesgo y las
         <b>condiciones clínicas especiales</b>, y pulsa <span class="tag">Calcular</span>. Esta versión calcula
-        <b>CHA<sup>2</sup>DS<sup>2</sup>-VASc</b>, <b>CHA<sup>2</sup>DS<sup>2</sup>-VA</b>, <b>HAS-BLED</b>,
+        <b>CHA<sub>2</sub>DS<sub>2</sub>-VASc</b>, <b>CHA<sub>2</sub>DS<sub>2</sub>-VA</b>, <b>HAS-BLED</b>,
         <b>ClCr (Cockcroft–Gault)</b> y muestra una comparativa de eficacia/seguridad. Además aplica
         <u>reglas de preferencia/evitación</u> por escenarios clínicos, genera <b>recomendaciones individualizadas</b>
         y sugiere <b>posología</b> con resaltado cuando procede la dosis reducida.
@@ -166,7 +166,7 @@ header h1 {
       <div class="sep"></div>
       <div class="grid g-2">
         <div>
-          <label>Factores CHA<sup>2</sup>DS<sup>2</sup>-VASc</label>
+          <label>Factores CHA<sub>2</sub>DS<sub>2</sub>-VASc</label>
           <label class="row" for="cSc"><input id="cSc" type="checkbox" /> Sexo femenino</label>
           <label class="row" for="cAge65"><input id="cAge65" type="checkbox" /> Edad 65–74 años</label>
           <label class="row" for="cAge75"><input id="cAge75" type="checkbox" /> Edad ≥ 75 años (2 pt)</label>
@@ -223,10 +223,10 @@ header h1 {
       <h2 style="margin:0 0 8px;">Resultados</h2>
       <div class="grid g-2">
         <div>
-          <div><b>CHA<sup>2</sup>DS<sup>2</sup>-VA</b>: <span class="pill ok" id="scoreVA">–</span>
+          <div><b>CHA<sub>2</sub>DS<sub>2</sub>-VA</b>: <span class="pill ok" id="scoreVA">–</span>
             &nbsp;<span class="muted">(sin sexo)</span></div>
           <div><b>HAS-BLED</b>: <span class="pill ok" id="scoreHASBLED">–</span></div>
-          <div class="muted">CHA<sup>2</sup>DS<sup>2</sup>-VASc clásico: <span id="scoreVASc">–</span></div>
+          <div class="muted">CHA<sub>2</sub>DS<sub>2</sub>-VASc clásico: <span id="scoreVASc">–</span></div>
         </div>
         <div>
           <div><b>Riesgo anual de ictus (sin tto): <span class="pill okr"><span id="annualStroke">–</span>%</span></b></div>
@@ -616,8 +616,8 @@ header h1 {
       </div>
       <div>
         <table>
-          <tr><td><b>CHA<sup>2</sup>DS<sup>2</sup>-VA</b></td><td class="chip">${r.scores.va}</td></tr>
-          <tr><td><b>CHA<sup>2</sup>DS<sup>2</sup>-VASc</b></td><td class="chip">${r.scores.vasc}</td></tr>
+          <tr><td><b>CHA<sub>2</sub>DS<sub>2</sub>-VA</b></td><td class="chip">${r.scores.va}</td></tr>
+          <tr><td><b>CHA<sub>2</sub>DS<sub>2</sub>-VASc</b></td><td class="chip">${r.scores.vasc}</td></tr>
           <tr><td><b>HAS-BLED</b></td><td class="chip">${r.scores.hasbled}</td></tr>
           <tr><td><b>Riesgo ictus sin tto</b></td><td>${r.risks.strokeBase} %/año</td></tr>
           <tr><td><b>Riesgo sangrado base</b></td><td>${r.risks.bleedBase} %/año</td></tr>
